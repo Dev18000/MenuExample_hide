@@ -30,9 +30,9 @@
         <SfSidebar class="dockSidebar" Width="250px" DockSize="60px" Target=".e-main-content" EnableDock="true" Position="SidebarPosition.Left" @bind-IsOpen="ToggleSidebar"
                    MediaQuery="(min-width: 600px)" Type="SidebarType.Auto">
             <ChildContent>
-                <SfListView DataSource="@List" TValue="listData" CssClass="e-template-list" ShowIcon="true">
-                    <ListViewFieldSettings TValue="listData" Id="Id" Text="Text" IconCss="IconCss"></ListViewFieldSettings>
-                    <ListViewEvents TValue="listData" Clicked="OnSelect"></ListViewEvents>
+                <SfListView DataSource="@List" TValue="ListData" CssClass="e-template-list" ShowIcon="true">
+                    <ListViewFieldSettings TValue="ListData" Id="Id" Text="Text" IconCss="IconCss"></ListViewFieldSettings>
+                    <ListViewEvents TValue="ListData" Clicked="OnSelect"></ListViewEvents>
                 </SfListView>
             </ChildContent>
         </SfSidebar>
@@ -44,17 +44,17 @@
 </div>
 
 @code {
-    public void OnSelect(ClickEventArgs<listData> args)
+    public void OnSelect(ClickEventArgs<ListData> args)
     {
     }
 
     // Specify the value of ListView component DataSource property.
-    public List<listData> List = new List<listData>
+    public List<ListData> List = new List<ListData>
     {
-        new listData {Id="1", Text = "Some menu", IconCss = "sb-icons icon-calendar e-sb-icon control-icon", },
-        new listData {Id="2", Text = "Some menu 2", IconCss = "sb-icons icon-calendar e-sb-icon control-icon", },
+        new ListData {Id="1", Text = "Some menu", IconCss = "sb-icons icon-calendar e-sb-icon control-icon", },
+        new ListData {Id="2", Text = "Some menu 2", IconCss = "sb-icons icon-calendar e-sb-icon control-icon", },
     };
-    public class listData
+    public class ListData
     {
         public string Id { get; set; }
         public string Text { get; set; }
