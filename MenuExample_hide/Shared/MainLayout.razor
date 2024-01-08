@@ -8,18 +8,17 @@
 
 <div id="wrapper">
 
-    <AuthorizeView Roles="Admin">
+@*     <AuthorizeView Roles="Admin">
         <Authorized>
             <p>TAG FOR ROLE TEST</p>
         </Authorized>
         <NotAuthorized>
             <p>NOT ROLE FOR DISPLAY</p>
         </NotAuthorized>
-    </AuthorizeView>
+    </AuthorizeView> *@
 
     <div>
         <div id="header" style="width: 100%">
-
             <span style="float: left">
                 <SfButton CssClass="custom-button" IconCss="e-icons e-menu" @onclick="MenuButtonClick">
                 </SfButton>
@@ -36,8 +35,6 @@
                 </SfListView>
             </ChildContent>
         </SfSidebar>
-
-
     </div>
     @*main content declaration*@
     <div class="main-text-content">@Body</div>
