@@ -7,23 +7,38 @@
 @inject Microsoft.AspNetCore.Components.NavigationManager UriHelper;
 
 <div id="wrapper">
-    <div id="header" style="width: 100%">
-        <span style="float: left">
-            <SfButton CssClass="custom-button" IconCss="e-icons e-menu" @onclick="MenuButtonClick">
-            </SfButton>
-        </span>
-        <span style="float: left; font-size: 20px; padding-left: 10px"></span>
-        <span style="font-size: 25px">@HeaderText</span>
+
+    <AuthorizeView Roles="Admin">
+        <Authorized>
+            <p>TAG FOR ROLE TEST</p>
+        </Authorized>
+        <NotAuthorized>
+            <p>NOT ROLE FOR DISPLAY</p>
+        </NotAuthorized>
+    </AuthorizeView>
+
+    <div>
+        <div id="header" style="width: 100%">
+
+            <span style="float: left">
+                <SfButton CssClass="custom-button" IconCss="e-icons e-menu" @onclick="MenuButtonClick">
+                </SfButton>
+            </span>
+            <span style="float: left; font-size: 20px; padding-left: 10px"></span>
+            <span style="font-size: 25px">@HeaderText</span>
+        </div>
+        <SfSidebar class="dockSidebar" Width="250px" DockSize="60px" Target=".e-main-content" EnableDock="true" Position="SidebarPosition.Left" @bind-IsOpen="ToggleSidebar"
+                   MediaQuery="(min-width: 600px)" Type="SidebarType.Auto">
+            <ChildContent>
+                <SfListView DataSource="@List" TValue="listData" CssClass="e-template-list" ShowIcon="true">
+                    <ListViewFieldSettings TValue="listData" Id="Id" Text="Text" IconCss="IconCss"></ListViewFieldSettings>
+                    <ListViewEvents TValue="listData" Clicked="OnSelect"></ListViewEvents>
+                </SfListView>
+            </ChildContent>
+        </SfSidebar>
+
+
     </div>
-    <SfSidebar class="dockSidebar" Width="250px" DockSize="60px" Target=".e-main-content" EnableDock="true" Position="SidebarPosition.Left" @bind-IsOpen="ToggleSidebar"
-               MediaQuery="(min-width: 600px)" Type="SidebarType.Auto">
-        <ChildContent>
-            <SfListView DataSource="@List" TValue="listData" CssClass="e-template-list" ShowIcon="true">
-                <ListViewFieldSettings TValue="listData" Id="Id" Text="Text" IconCss="IconCss"></ListViewFieldSettings>
-                <ListViewEvents TValue="listData" Clicked="OnSelect"></ListViewEvents>
-            </SfListView>
-        </ChildContent>
-    </SfSidebar>
     @*main content declaration*@
     <div class="main-text-content">@Body</div>
 </div>
@@ -299,7 +314,7 @@
     }
 
     .dockSidebar .e-sb-icon {
-        font-family: 'e-icons'; 
+        font-family: 'e-icons';
         font-style: normal;
         font-weight: normal;
         font-variant: normal;
