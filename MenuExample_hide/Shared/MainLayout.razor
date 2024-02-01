@@ -69,12 +69,16 @@
                             <span class="e-text" title="home">Home</span>
                         </a>
                     </li>
-                    <li class="sidebar-item">
-                        <a href="/featchdata" class="linkMenu">
-                            <span class="sb-icons icon-chart e-sb-icon control-icon"></span>
-                            <span class="e-text" title="profile">Profile</span>
-                        </a>
-                    </li>
+                    <AuthorizeView Roles="SomeCondition">
+                        <Authorized>
+                            <li class="sidebar-item">
+                                <a href="/featchdata" class="linkMenu">
+                                    <span class="sb-icons icon-chart e-sb-icon control-icon"></span>
+                                    <span class="e-text" title="profile">Profile</span>
+                                </a>
+                            </li>
+                        </Authorized>
+                    </AuthorizeView>
                 </ul>
             </div>
         </ChildContent>
@@ -208,7 +212,7 @@
 }
 
 <style>
-    .linkMenu{
+    .linkMenu {
         text-decoration: none;
     }
 
