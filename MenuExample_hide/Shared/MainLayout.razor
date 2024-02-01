@@ -24,16 +24,36 @@
                     <ListViewEvents TValue="ListData" Clicked="OnSelect"></ListViewEvents>
                     <ListViewTemplates TValue="ListData">
                         <Template Context="data">
-                            <NavLink href="@data.Href" class="nav-link">
-                                <div class="e-list-icon">
-                                    <span class="@data.IconCss"></span>
-                                </div>
-                                <div class="e-list-content">
-                                    <div class="e-text-content">
-                                        <div class="e-list-title">@data.Text</div>
+                            @if(data.Href == "/counter")
+                            {
+                                <AuthorizeView Roles="someCondition">
+                                    <Authorized>
+                                        <NavLink href="@data.Href" class="nav-link">
+                                            <div class="e-list-icon">
+                                                <span class="@data.IconCss"></span>
+                                            </div>
+                                            <div class="e-list-content">
+                                                <div class="e-text-content">
+                                                    <div class="e-list-title">@data.Text</div>
+                                                </div>
+                                            </div>
+                                        </NavLink>
+                                    </Authorized>
+                                </AuthorizeView>
+                            }
+                            else
+                            {
+                                <NavLink href="@data.Href" class="nav-link">
+                                    <div class="e-list-icon">
+                                        <span class="@data.IconCss"></span>
                                     </div>
-                                </div>
-                            </NavLink>
+                                    <div class="e-list-content">
+                                        <div class="e-text-content">
+                                            <div class="e-list-title">@data.Text</div>
+                                        </div>
+                                    </div>
+                                </NavLink>
+                            }
                         </Template>
                     </ListViewTemplates>
                 </SfListView>
