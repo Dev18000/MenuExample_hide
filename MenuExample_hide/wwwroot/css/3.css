@@ -1,0 +1,196 @@
+﻿
+@import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
+
+:root {
+    --colorGray: #E4E3E1 !important;
+    --colorRed: #8A2336 !important;
+    --someFont: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+}
+
+body,
+html {
+    overflow: hidden;
+    max-width: 100%; /*TODO test this changement*/
+}
+
+.msgError {
+    color: red;
+}
+
+.e-input-eye-open:before {
+    content: '\e887';
+    color: #8A2336 !important;
+}
+
+.e-input-eye-close:before {
+    content: '\e7de';
+    color: #8A2336 !important;
+}
+
+.user_card {
+    height: 500px;
+    width: 350px;
+    margin-top: auto;
+    margin-bottom: auto;
+    background: #E4E3E1;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    -moz-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+    border-radius: 5px;
+}
+
+.brand_logo_container {
+    position: absolute;
+    height: 170px;
+    width: 170px;
+    top: -75px;
+    border-radius: 50%;
+    background: white;
+    padding: 10px;
+    text-align: center;
+}
+
+.brand_logo {
+    height: 150px;
+    width: 150px;
+    border-radius: 50%;
+    border: 2px solid white;
+}
+
+.form_container {
+    margin-top: 100px;
+}
+
+.labelUser {
+    color: #8A2336 !important;
+    font-family: var(--someFont);
+    font-weight: bold;
+    text-align: center;
+}
+
+.login_btn {
+    font-family: var(--someFont);
+    background-color: #8A2336 !important;
+    border: none;
+    color: #E4E3E1;
+    text-shadow: 0 1px 1px gray;
+    padding: 10px;
+    text-align: center;
+    text-decoration: none;
+    display: inline-block;
+    font-size: 18px;
+    margin: 4px 2px;
+    cursor: pointer;
+    border-radius: 12px;
+    font-weight: bold;
+    /*TODO code review for minimize code */
+}
+
+    .login_btn:active {
+        background: #E5E5E5 !important;
+        box-shadow: none !important;
+        outline: 0px !important;
+        color: #8A2336;
+    }
+
+    .login_btn:hover {
+        background-color: #E4E3E1 !important;
+        color: #8A2336;
+    }
+
+.login_container {
+    padding: 0 2rem;
+}
+
+.input-group-text {
+    background: #DDDDDD !important;
+    color: gray !important;
+    border: 0 !important;
+    border-radius: 0.25rem 0 0 0.25rem !important;
+}
+
+.input_user,
+.input_pass:focus {
+    box-shadow: none !important;
+    outline: 0px !important;
+}
+
+    .input_user::placeholder {
+        color: #E4E3E1 !important;
+    }
+
+.input_pass::placeholder {
+    color: #E4E3E1 !important;
+}
+
+.custom-checkbox .custom-control-input:checked ~ .custom-control-label::before {
+    background-color: #8A2336 !important;
+}
+
+.btnGris {
+    background-color: #E4E3E1 !important;
+    border: none;
+    color: #8A2336;
+    text-shadow: 0 1px 1px gray;
+    text-align: center;
+    text-decoration: none;
+    cursor: pointer;
+    border-radius: 6px;
+    font-weight: bold;
+}
+
+.logoutDisplay {
+    display: flex;
+    flex-direction: column;
+}
+
+/*syncfusion*/
+.e-multiselect.e-input-group .e-multi-select-wrapper {
+    font-family: var(--someFont);
+}
+
+.e-multi-select-wrapper .e-chips {
+    background-color: rgba(138, 35, 54,0.8);
+    color: #E4E3E1;
+    font-family: var(--someFont);
+}
+
+.arrowDownGreen {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 12px solid lightgreen;
+    cursor: pointer;
+}
+
+.arrowDownBlue {
+    width: 0;
+    height: 0;
+    border-left: 10px solid transparent;
+    border-right: 10px solid transparent;
+    border-top: 12px solid lightblue;
+    cursor: pointer;
+}
+
+/* #region settings page */
+.labelNavigate {
+    cursor: pointer;
+}
+
+.labelUserConfig {
+    position: center;
+    text-align: center;
+    font-size: 18px;
+}
+/* #endregion settings page */
+
+.checkBoxBorderColor {
+    background-color: rgba(138, 35, 54,0.1) !important;
+    border-radius: 4px;
+}

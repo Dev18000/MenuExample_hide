@@ -1,7 +1,13 @@
 @import url('open-iconic/font/css/open-iconic-bootstrap.min.css');
 
+:root {
+    --colorGray: #E4E3E1 !important;
+    --colorRed: #8A2336 !important;
+    --someFont: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+}
+
 html, body {
-    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-family: var(--someFont) !important;
 }
 
 h1:focus {
@@ -62,3 +68,197 @@ a, .btn-link {
     .blazor-error-boundary::after {
         content: "An error has occurred."
     }
+
+.colorRed {
+    color: #8A2336 !important;
+    font-weight: bold !important;
+}
+
+.colorGray {
+    color: #E4E3E1 !important;
+    font-weight: bold;
+}
+
+/*MainLayout*/
+.nameUser {
+    color: #8A2336;
+    font-weight: bold;
+    padding-top: 12px;
+    padding-right: 2px;
+    font-family: var(--someFont);
+}
+
+/* #region footer*/
+.imageLogo {
+    width: 50px;
+}
+
+footer {
+    font-family: var(--someFont);
+    position: fixed;
+    background: #E4E3E1;
+    width: 100%;
+    /*height: 10vh;*/
+    bottom: 0;
+    left: 0;
+}
+
+    footer::before {
+        content: '';
+        position: absolute;
+        left: 0;
+        top: 60px;
+        /*height: 1px;*/
+        width: 100%;
+        background: #8A2336;
+    }
+
+    footer .contentFooter {
+        max-width: 1250px;
+        margin: auto;
+        padding-top: 2px;
+    }
+
+        footer .contentFooter .top-footer {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            /*margin-bottom: 15px;*/
+        }
+
+.contentFooter .top-footer .logo-details {
+    color: #8A2336;
+    font-size: 18px;
+}
+
+.contentFooter .top-footer .media-icons {
+    display: flex;
+}
+
+    .contentFooter .top-footer .media-icons a {
+        height: 30px;
+        width: 30px;
+        margin: 0 8px;
+        border-radius: 50%;
+        text-align: center;
+        line-height: 30px;
+        color: #fff;
+        font-size: 17px;
+        text-decoration: none;
+        transition: all 0.4s ease;
+    }
+
+.top-footer .media-icons a:nth-child(1) {
+    background: #4267B2;
+}
+
+    .top-footer .media-icons a:nth-child(1):hover {
+        color: #4267B2;
+        background: #fff;
+    }
+
+.top-footer .media-icons a:nth-child(2) {
+    background: #1DA1F2;
+}
+
+    .top-footer .media-icons a:nth-child(2):hover {
+        color: #1DA1F2;
+        background: #fff;
+    }
+
+.top-footer .media-icons a:nth-child(3) {
+    background: #E1306C;
+}
+
+    .top-footer .media-icons a:nth-child(3):hover {
+        color: #E1306C;
+        background: #fff;
+    }
+
+.top-footer .media-icons a:nth-child(4) {
+    background: #0077B5;
+}
+
+    .top-footer .media-icons a:nth-child(4):hover {
+        color: #0077B5;
+        background: #fff;
+    }
+
+.top-footer .media-icons a:nth-child(5) {
+    background: #FF0000;
+}
+
+    .top-footer .media-icons a:nth-child(5):hover {
+        color: #FF0000;
+        background: #fff;
+    }
+
+footer .bottom-details {
+    width: 100%;
+    background: #c7b6b5;
+}
+
+    footer .bottom-details .bottom_text {
+        max-width: 1250px;
+        margin: auto;
+        padding: 5px;
+        display: flex;
+        justify-content: space-between;
+    }
+
+.bottom-details .bottom_text span,
+.bottom-details .bottom_text a {
+    font-size: 11px;
+    font-weight: 300;
+    color: #fff;
+    opacity: 0.8;
+    text-decoration: none;
+}
+
+    .bottom-details .bottom_text a:hover {
+        opacity: 1;
+        text-decoration: underline;
+    }
+
+.bottom-details .bottom_text a {
+    margin-right: 10px;
+}
+
+@media (max-width: 700px) {
+    footer {
+        /*position: relative;*/
+    }
+
+    .contentFooter .top-footer .logo-details {
+        font-size: 18px;
+    }
+
+    .contentFooter .top-footer .media-icons a {
+        height: 25px;
+        width: 25px;
+        font-size: 14px;
+        line-height: 25px;
+    }
+
+    .bottom-details .bottom_text span,
+    .bottom-details .bottom_text a {
+        font-size: 12px;
+    }
+}
+
+@media (max-width: 520px) {
+    footer::before {
+        top: 145px;
+    }
+
+    footer .contentFooter .top-footer {
+        flex-direction: column;
+    }
+
+    .contentFooter .top-footer .media-icons {
+        /*margin-top: 16px;*/
+    }
+}
+/* #endregion footer*/
+
+

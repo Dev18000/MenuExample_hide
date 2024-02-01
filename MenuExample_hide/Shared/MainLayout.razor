@@ -1,81 +1,126 @@
-﻿@inherits LayoutComponentBase
-
+﻿@using Syncfusion.Blazor.Lists
 @using Syncfusion.Blazor.Navigations
 @using Syncfusion.Blazor.Buttons
-@using Syncfusion.Blazor.Lists
-@inject NavigationManager NavigationManager
+@inject NavigationManager Navigation
 @inject Microsoft.AspNetCore.Components.NavigationManager UriHelper;
 
+@inherits LayoutComponentBase
+
+@inject IJSRuntime JSRuntime
+
 <div id="wrapper">
-    <div>
-        <div id="header" style="width: 100%">
-            <span style="float: left">
-                <SfButton CssClass="custom-button" IconCss="e-icons e-menu" @onclick="MenuButtonClick">
-                </SfButton>
-            </span>
-            <span style="float: left; font-size: 20px; padding-left: 10px"></span>
-            <span style="font-size: 25px">@HeaderText</span>
+    <div id="header" style="width: 100%">
+        <span style="float:left; padding-top:11px;width:2%;">
+            <span class='e-icons @custom_menu_arrow' @onclick="MenuButtonClick"></span>
+        </span>
+        <div class="contentFooter">
+            <div class="top-footer">
+                <div class="logo-details" style="display:flex;margin-left:auto;justify-content:flex-end;">
+                    <a href="#" target="_blank" style="width:5%;">
+                        <img class="imageLogo" src="" alt="Logo" title="Some title" rel="nofollow noopener noreferrer"
+                             style="padding-top:10px;">
+                    </a>
+                    <div class="media-icons" style="padding-top:10px;">
+                        <a href="#"
+                           target="_blank" title="some also title" rel="nofollow noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+                    </div>
+
+                    <label class="nameUser">@UserCode</label>
+
+                    <AuthorizeView Roles="Administrateur">
+                        <Authorized>
+                            <button @onclick="AdminParameter" class="btnLogout">
+
+                                <span class="btnAdmin" aria-hidden="true"></span>
+                            </button>
+                        </Authorized>
+                    </AuthorizeView>
+                    <button @onclick="UserParameter" class="btnLogout"> <span class="oi oi-cog" aria-hidden="true"></span></button>
+                    <button @onclick="Deconnexion" class="btnLogout"><span class="oi oi-account-logout" aria-hidden="true"></span></button>
+
+                    <!--add translate-->
+                    <select class="switchLanguage">
+                        <option value="fr-FR">Français</option>
+                        <option value="en-US">English</option>
+                        <option value="es-ES">Español</option>
+                        <option value="de-DE">Deutsch</option>
+                    </select>
+
+                </div>
+            </div>
+
         </div>
-        <SfSidebar class="dockSidebar sideBarMenu" Width="161" DockSize="60px" Target=".e-main-content" EnableDock="true" Position="SidebarPosition.Left" @bind-IsOpen="ToggleSidebar"
-                   MediaQuery="(min-width: 600px)" Type="SidebarType.Auto">
-            <ChildContent>
-                <SfListView DataSource="@List" TValue="ListData" CssClass="e-template-list" ShowIcon="true">
-                    <ListViewFieldSettings TValue="ListData" Id="Id" Text="Text" IconCss="IconCss"></ListViewFieldSettings>
-                    <ListViewEvents TValue="ListData" Clicked="OnSelect"></ListViewEvents>
-                    <ListViewTemplates TValue="ListData">
-                        <Template Context="data">
-                            @if(data.Href == "/counter")
-                            {
-                                <AuthorizeView Roles="someCondition">
-                                    <Authorized>
-                                        <NavLink href="@data.Href" class="nav-link">
-                                            <div class="e-list-icon">
-                                                <span class="@data.IconCss"></span>
-                                            </div>
-                                            <div class="e-list-content">
-                                                <div class="e-text-content">
-                                                    <div class="e-list-title">@data.Text</div>
-                                                </div>
-                                            </div>
-                                        </NavLink>
-                                    </Authorized>
-                                </AuthorizeView>
-                            }
-                            else
-                            {
-                                <NavLink href="@data.Href" class="nav-link">
-                                    <div class="e-list-icon">
-                                        <span class="@data.IconCss"></span>
-                                    </div>
-                                    <div class="e-list-content">
-                                        <div class="e-text-content">
-                                            <div class="e-list-title">@data.Text</div>
-                                        </div>
-                                    </div>
-                                </NavLink>
-                            }
-                        </Template>
-                    </ListViewTemplates>
-                </SfListView>
-            </ChildContent>
-        </SfSidebar>
     </div>
-    @*main content declaration*@
-    <div class="main-text-content">@Body</div>
+    <SfSidebar class="dockSidebar sideBarMenu" Width="161" DockSize="60px" Target=".e-main-content"
+               EnableDock="true" Position="SidebarPosition.Left" @bind-IsOpen="ToggleSidebar"
+               MediaQuery="(min-width: 2000px)" Type="SidebarType.Auto">
+        <ChildContent>
+            <SfListView DataSource="@List" TValue="ListData" CssClass="e-template-list" ShowIcon="true">
+                <ListViewFieldSettings TValue="ListData" Id="Id" Text="Text" IconCss="IconCss"></ListViewFieldSettings>
+                <ListViewEvents TValue="ListData" Clicked="OnSelect"></ListViewEvents>
+                <ListViewTemplates TValue="ListData">
+                    <Template Context="data">
+                        <NavLink href="@data.Href" class="nav-link">
+                            <div class="e-list-icon">
+                                <span class="@data.IconCss"></span>
+                            </div>
+                            <div class="e-list-content">
+                                <div class="e-text-content">
+                                    <div class="e-list-title">@data.Text</div>
+                                </div>
+                            </div>
+                        </NavLink>
+                    </Template>
+                </ListViewTemplates>
+            </SfListView>
+        </ChildContent>
+    </SfSidebar>
+
+    <main class="mainTest">
+        <article class="content px-4" style="min-height:100%;">
+            @Body
+        </article>
+    </main>
+    <footer>
+        <div class="bottom-details">
+            <div class="bottom_text">
+
+                <span class="copyright_text">
+                    Copyright ©  @DateTime.UtcNow.Date.Year
+                    <a href="#" target="_blank" class="colorRed" title="someTitle" rel="nofollow noopener noreferrer">Some text.</a>All rights reserved
+                    <span style="color:#8A2336; font-weight:bold;padding-left:2px;">@version</span>
+                </span>
+                <span class="policy_terms">
+                    <a>Privacy policy</a>
+                    <a>Terms & condition</a>
+                </span>
+
+            </div>
+        </div>
+    </footer>
 </div>
 
 @code {
+    string LangTranslate = "";
+    string DrapeauTranslate = "";
+
+    private async void OnSelected(string val)
+    {
+    }
+
+    private string custom_menu_arrow { get; set; } = "custom-button-close";
     public void OnSelect(ClickEventArgs<ListData> args)
     {
+        //JsRuntime.InvokeVoidAsync("open", args.ItemData.Href, "_blank");
+        Navigation.NavigateTo(args.ItemData.Href);
     }
 
     // Specify the value of ListView component DataSource property.
     public List<ListData> List = new List<ListData>
     {
-        new ListData {Id="1", Text = "1", IconCss = "sb-icons icon-calendar e-sb-icon control-icon", Href="/counter" },
-        new ListData {Id="2", Text = "2", IconCss = "sb-icons icon-calendar e-sb-icon control-icon", Href="/fetchdata" },
+        new ListData {Id="1", Text = "Menu123", IconCss = "sb-icons icon-calendar e-sb-icon control-icon", Href = "/counter"  },
+        new ListData {Id="2",Text = "Menu2", IconCss = "sb-icons icon-chart e-sb-icon control-icon", Href = "/fetchdata" },
     };
-
     public class ListData
     {
         public string Id { get; set; }
@@ -84,16 +129,98 @@
         public string Href { get; set; }
     }
 
-    public bool ToggleSidebar = true;
-    public void MenuButtonClick()
+    public bool ToggleSidebar = false;
+    public async void MenuButtonClick()
     {
         ToggleSidebar = !ToggleSidebar;
+
+        if (ToggleSidebar)
+        {
+            custom_menu_arrow = "custom-button-close";
+        }
+        else if (!ToggleSidebar)
+        {
+            custom_menu_arrow = "custom-button-open";
+        }
     }
 
     public string HeaderText = "Header";
+
+    System.Version? appVersion { get; set; }
+    string version { get; set; }
+    string cookieByUser = "";
+    string UserCode = "";
+
+    public async void VerifPrenom()
+    {
+        if (UserCode != "")
+        {
+            UserCode = "";
+            StateHasChanged();
+        }
+    }
+
+    protected override async Task OnInitializedAsync()
+    {
+        if (System.Reflection.Assembly.GetExecutingAssembly().GetName().Version != null)
+        {
+            appVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
+            version = String.Format("V{0}", appVersion);
+        }
+
+        this.StateHasChanged();
+    }
+
+    string Bearer = "";
+
+    protected override async Task OnAfterRenderAsync(bool firstRender)
+    {
+        base.OnAfterRender(firstRender);
+        if (firstRender)
+        {
+            StateHasChanged();
+        }
+        VerifPrenom();
+    }
+
+    public async void Deconnexion()
+    {
+        Bearer = "";
+
+        Navigation.NavigateTo("");
+
+        this.StateHasChanged();
+    }
+
+    public void UserParameter()
+    {
+        Navigation.NavigateTo("userSettings");
+    }
+
+    public void AdminParameter()
+    {
+        Navigation.NavigateTo("admin");
+    }
 }
 
 <style>
+    .switchLanguage {
+        width: 75px;
+        margin: 10px;
+        font-family: Arial;
+        background-color: transparent;
+        cursor: pointer;
+        border: none;
+        outline: none;
+        color: #B2AFAF;
+        font-size: 13px;
+    }
+
+    .dropbtn {
+        padding: 5px;
+        cursor: pointer;
+    }
+
     .e-sidebar.e-left.e-open.e-disable-animation, .e-sidebar.e-right.e-open.e-disable-animation, .e-sidebar.e-right.e-close.e-disable-animation, .e-sidebar.e-left.e-close.e-disable-animation {
         top: 50px;
     }
@@ -105,6 +232,7 @@
     }
 
     .maincontent {
+        /*height: 568px;*/
         margin-left: 57px;
     }
 
@@ -338,12 +466,9 @@
         font-family: 'e-icons';
     }
 
-
     .dockSidebar .e-sb-icon {
         font-family: 'e-icons';
-        /*font-style: normal;*/
         font-weight: bold;
-        /*font-variant: normal;*/
         text-transform: none;
         -webkit-font-smoothing: antialiased;
         -moz-osx-font-smoothing: grayscale;
@@ -502,7 +627,6 @@
         font-weight: bold;
         background-color: transparent !important;
         border: none !important;
-        /*border-radius: 12px;*/
         border-color: transparent !important;
         outline: none !important;
         text-decoration: none !important;
@@ -571,6 +695,7 @@
 
     /*fixer hauteur sidebar-menu*/
     .sideBarMenu {
+        /*height: 100vh;*/
         background-color: #F2F2F2;
         margin-bottom: -101%;
         padding-bottom: 101%;
@@ -581,15 +706,15 @@
     .nav-link .e-list-content {
         padding-left: 47px;
         margin-top: -25px;
-        color: darkblue;
+        color: blue;
     }
 
     .nav-link, .nav-link:hover, .nav-link:active, .nav-link:visited, .nav-link:focus {
         padding-left: 2px !important;
-        color: darkblue;
+        color: blue;
     }
 
     .btnAdmin:before {
-        content: url("/images/Admin.svg");
+        content: url("");
     }
 </style>

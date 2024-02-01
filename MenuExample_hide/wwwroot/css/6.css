@@ -1,0 +1,10 @@
+﻿:root {
+    --colorGray: #E4E3E1 !important;
+    --colorRed: #8A2336 !important;
+}
+
+.panelSettings {
+    display: flex;
+    flex-direction: column;
+    color: var(--colorRed);
+}

@@ -1,0 +1,21 @@
+﻿.choiceDepot {
+    background-color: transparent;
+    border: none;
+    cursor: pointer;
+}
+
+.closeChoice {
+    content: url("/images/closeFonce.svg");
+}
+
+.openChoice {
+    content: url("/images/openFonce.svg");
+}
+
+.panelChoice {
+    display: flex;
+}
+
+.separator {
+    content: url("/images/line2.svg");
+}

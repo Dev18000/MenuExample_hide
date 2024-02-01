@@ -1,0 +1,107 @@
+﻿/* #region syncfusion*/
+/*cell text if value negative*/
+.e-grid .e-gridcontent .e-rowcell.negativevalue {
+    color: red;
+    font-weight: bold;
+}
+
+/*supprimer border si le cellulles not editable*/
+.e-grid .e-content .e-rowcell.e-removefocus.e-focused {
+    box-shadow: none;
+}
+/* #endregion syncfusion*/
+/* #region btn voi/details in stock*/
+.productDetailBtn {
+    border: none;
+    background-color: white;
+    color: #29abe2;
+    margin-left: 8px;
+    text-decoration: none;
+    outline: none;
+    cursor: pointer;
+}
+
+    .productDetailBtn:hover, .productDetailBtn:active, .productDetailBtn:focus {
+        border: none;
+        background-color: lightgrey;
+        color: blue;
+        font-weight: bold;
+        margin-left: 8px;
+        text-decoration: none;
+        outline: none;
+        cursor: pointer;
+    }
+
+/* #endregion btn voi/details in stock*/
+
+/*tooltip for task, a ete deriere*/
+.e-tooltip-wrap {
+    z-index: 1000000000000;
+}
+
+/*entourer la cellules si mouvement stock*/
+.mouvementStock {
+    border-bottom: 3px solid lightgreen !important;
+}
+
+/*color unite type*/
+.blueColor {
+    color: blue !important;
+    font-weight: bold;
+    font-size: 18px;
+}
+
+/*distinguer le background de quantite*/
+.blue1 {
+    background-color: rgba(135,206,235,0.13) !important;
+}
+
+ /*design inter qualite btn*/ .interQualiteBtn {
+    border: none;
+    background-color: white;
+    color: #29abe2;
+    margin-left: 8px;
+    text-decoration: none;
+    outline: none;
+    cursor: pointer;
+}
+
+.interQualiteBtn:before {
+    background: url(images/recycle-solid.svg);
+    background-repeat: none;
+}
+
+.interQualiteBtn:hover {
+    font-weight: bold;
+}
+
+/*design inter qualite btn*/
+.e-ok-icon::before {
+    content: '\e7fc';
+}
+
+.ok-btn {
+    border: 1px solid #04AA6D !important;
+    background-color: transparent;
+    color: lightgreen;
+    /*margin-left: 8px;*/
+    /*text-decoration: none;
+    outline: none;*/
+    cursor: pointer;
+    border-radius: 3px;
+}
+
+    .ok-btn:active, .ok-btn:hover, .ok-btn:focus {
+        /*border: none;*/
+        background: #04AA6D;
+        color: white;
+        font-weight: bold;
+       /* margin-left: 8px;*/
+        /*text-decoration: none;
+        outline: none;*/
+        cursor: pointer;
+    }
+
+.e-icon-detail::before {
+    content: '\e7de';
+}
