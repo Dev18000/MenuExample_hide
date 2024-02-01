@@ -55,6 +55,7 @@
         new ListData {Id="1", Text = "1", IconCss = "sb-icons icon-calendar e-sb-icon control-icon", Href="/counter" },
         new ListData {Id="2", Text = "2", IconCss = "sb-icons icon-calendar e-sb-icon control-icon", Href="/fetchdata" },
     };
+
     public class ListData
     {
         public string Id { get; set; }
@@ -66,12 +67,10 @@
     public bool ToggleSidebar = true;
     public void MenuButtonClick()
     {
-
         ToggleSidebar = !ToggleSidebar;
     }
 
     public string HeaderText = "Header";
-
 }
 
 <style>
