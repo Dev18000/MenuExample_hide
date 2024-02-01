@@ -56,7 +56,8 @@
     background-color: rgba(135,206,235,0.13) !important;
 }
 
- /*design inter qualite btn*/ .interQualiteBtn {
+/*design inter qualite btn*/
+.interQualiteBtn {
     border: none;
     background-color: white;
     color: #29abe2;
@@ -66,14 +67,14 @@
     cursor: pointer;
 }
 
-.interQualiteBtn:before {
-    background: url(images/recycle-solid.svg);
-    background-repeat: none;
-}
+    .interQualiteBtn:before {
+        background: url(images/recycle-solid.svg);
+        background-repeat: none;
+    }
 
-.interQualiteBtn:hover {
-    font-weight: bold;
-}
+    .interQualiteBtn:hover {
+        font-weight: bold;
+    }
 
 /*design inter qualite btn*/
 .e-ok-icon::before {
@@ -84,21 +85,14 @@
     border: 1px solid #04AA6D !important;
     background-color: transparent;
     color: lightgreen;
-    /*margin-left: 8px;*/
-    /*text-decoration: none;
-    outline: none;*/
     cursor: pointer;
     border-radius: 3px;
 }
 
     .ok-btn:active, .ok-btn:hover, .ok-btn:focus {
-        /*border: none;*/
         background: #04AA6D;
         color: white;
         font-weight: bold;
-       /* margin-left: 8px;*/
-        /*text-decoration: none;
-        outline: none;*/
         cursor: pointer;
     }
 

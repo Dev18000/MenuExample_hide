@@ -314,22 +314,18 @@ tr td:last-child {
 }
 
 .e-grid .e-headercell {
-    background: #E4E3E1; /*rgba(138, 35, 54,0.4);*/
-    color: #961B34; /*rgba(138, 35, 54,1)*/
+    background: #E4E3E1;
+    color: #961B34;
     text-shadow: 0 1px 1px #961B34;
     font-family: var(--someFont);
-    /*border-radius: 8px !important;*/
-    /*border: 1px solid red;*/
 }
 
 .e-grid .e-focused {
     text-decoration: none;
-    /*text-decoration-color: yellow !important;*/
     border: none !important;
 }
 
 .e-headercell {
-    /*color: rgba(138, 35, 54,1) !important;*/
 }
 
 .e-grid.e-gridhover tr.e-row:hover .e-rowcell:not(.e-cellselectionbackground):not(.e-active):not(.e-updatedtd):not(.e-indentcell) {
@@ -351,10 +347,6 @@ tr td:last-child {
 
 /*color row*/
 .e-grid .e-row.e-altrow {
-    /*background-color: #e1e1e3;*/ /*rgba(138, 35, 54,0.1);*/
-    /*border-radius: 8px !important;*/
-    /*border: 5px solid red !important;*/
-    /*border-collapse:collapse;*/
 }
 /*to style the remaining rows*/
 .e-grid .e-row {
