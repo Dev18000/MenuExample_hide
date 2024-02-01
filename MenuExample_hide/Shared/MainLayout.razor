@@ -55,24 +55,28 @@
                EnableDock="true" Position="SidebarPosition.Left" @bind-IsOpen="ToggleSidebar"
                MediaQuery="(min-width: 2000px)" Type="SidebarType.Auto">
         <ChildContent>
-            <SfListView DataSource="@List" TValue="ListData" CssClass="e-template-list" ShowIcon="true">
-                <ListViewFieldSettings TValue="ListData" Id="Id" Text="Text" IconCss="IconCss"></ListViewFieldSettings>
-                <ListViewEvents TValue="ListData" Clicked="OnSelect"></ListViewEvents>
-                <ListViewTemplates TValue="ListData">
-                    <Template Context="data">
-                        <NavLink href="@data.Href" class="nav-link">
-                            <div class="e-list-icon">
-                                <span class="@data.IconCss"></span>
-                            </div>
-                            <div class="e-list-content">
-                                <div class="e-text-content">
-                                    <div class="e-list-title">@data.Text</div>
-                                </div>
-                            </div>
-                        </NavLink>
-                    </Template>
-                </ListViewTemplates>
-            </SfListView>
+            <div class="dock">
+                <ul>
+                    <li class="sidebar-item" id="toggle">
+                        <a href="/counter" class="linkMenu">
+                            <span class="sb-icons icon-calendar e-sb-icon control-icon"></span>
+                            <span class="e-text" title="menu">Menu</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="/featchdata" class="linkMenu">
+                            <span class="sb-icons icon-chart e-sb-icon control-icon"></span>
+                            <span class="e-text" title="home">Home</span>
+                        </a>
+                    </li>
+                    <li class="sidebar-item">
+                        <a href="/featchdata" class="linkMenu">
+                            <span class="sb-icons icon-chart e-sb-icon control-icon"></span>
+                            <span class="e-text" title="profile">Profile</span>
+                        </a>
+                    </li>
+                </ul>
+            </div>
         </ChildContent>
     </SfSidebar>
 
@@ -204,6 +208,10 @@
 }
 
 <style>
+    .linkMenu{
+        text-decoration: none;
+    }
+
     .switchLanguage {
         width: 75px;
         margin: 10px;
@@ -715,4 +723,105 @@
     .btnAdmin:before {
         content: url("");
     }
+
+
+
+
+    /*add style for list static menu*/
+    /* Content area styles */
+    .title {
+        font-size: 20px;
+    }
+
+    /* Sidebar styles */
+    .e-sidebar .e-icons::before {
+        font-size: 25px;
+    }
+
+    /* dockbar icon Style */
+    .e-sidebar .home::before {
+        content: '\e102';
+    }
+
+    .e-sidebar .profile::before {
+        content: '\e10c';
+    }
+
+    .e-sidebar .info::before {
+        content: '\e11b';
+    }
+
+    .e-sidebar .settings::before {
+        content: '\e10b';
+    }
+
+    .e-sidebar .expand::before,
+    .e-sidebar.e-right.e-open .expand::before {
+        content: '\e10f';
+    }
+
+    .e-sidebar.e-open .expand::before,
+    .e-sidebar.e-right .expand::before {
+        content: '\e10e';
+    }
+
+    /* end of dockbar icon Style */
+
+    .e-sidebar.e-dock.e-close span.e-text {
+        display: none;
+    }
+
+    .e-sidebar.e-dock.e-open span.e-text {
+        display: inline-block;
+    }
+
+    .e-sidebar li {
+        list-style-type: none;
+        cursor: pointer;
+    }
+
+    .e-sidebar ul {
+        padding: 0px;
+    }
+
+
+    .e-sidebar span.e-icons {
+        color: #c0c2c5;
+        line-height: 2
+    }
+
+    .e-open .e-icons {
+        margin-right: 16px;
+    }
+
+    .e-open .e-text {
+        overflow: hidden;
+        font-size: 15px;
+    }
+
+    .sidebar-item {
+        text-align: center;
+        border-bottom: 1px #e5e5e58a solid;
+    }
+
+    .e-sidebar.e-open .sidebar-item {
+        text-align: left;
+        padding-left: 15px;
+        color: #c0c2c5;
+    }
+
+    .e-sidebar {
+        overflow: hidden;
+    }
+
+    @@font-face {
+        font-family: 'e-icons';
+        font-weight: normal;
+        font-style: normal;
+    }
+
+    .main > div {
+        padding: 0px !important;
+    }
+    /* end of sidebar styles */
 </style>
