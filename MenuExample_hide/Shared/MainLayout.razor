@@ -9,823 +9,692 @@
 @inject IJSRuntime JSRuntime
 
 <div id="wrapper">
-    <div id="header" style="width: 100%">
-        <span style="float:left; padding-top:11px;width:2%;">
-            <span class='e-icons @custom_menu_arrow' @onclick="MenuButtonClick"></span>
-        </span>
-        <div class="contentFooter">
-            <div class="top-footer">
-                <div class="logo-details" style="display:flex;margin-left:auto;justify-content:flex-end;">
-                    <a href="#" target="_blank" style="width:5%;">
-                        <img class="imageLogo" src="" alt="Logo" title="Some title" rel="nofollow noopener noreferrer"
-                             style="padding-top:10px;">
-                    </a>
-                    <div class="media-icons" style="padding-top:10px;">
-                        <a href="#"
-                           target="_blank" title="some also title" rel="nofollow noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
-                    </div>
+	<div id="header" style="width: 100%">
+		<span style="float:left; padding-top:11px;width:2%;">
+			<span class='e-icons @custom_menu_arrow' @onclick="MenuButtonClick"></span>
+		</span>
+		<div class="contentFooter">
+			<div class="top-footer">
+				<div class="logo-details" style="display:flex;margin-left:auto;justify-content:flex-end;">
+					<a href="#" target="_blank" style="width:5%;">
+						<img class="imageLogo" src="" alt="Logo" title="Some title" rel="nofollow noopener noreferrer"
+							 style="padding-top:10px;">
+					</a>
+					<div class="media-icons" style="padding-top:10px;">
+						<a href="#"
+						   target="_blank" title="some also title" rel="nofollow noopener noreferrer"><i class="fab fa-linkedin-in"></i></a>
+					</div>
 
-                    <label class="nameUser">@UserCode</label>
+					<label class="nameUser">@UserCode</label>
 
-                    <AuthorizeView Roles="Administrateur">
-                        <Authorized>
-                            <button @onclick="AdminParameter" class="btnLogout">
+					<AuthorizeView Roles="Administrateur">
+						<Authorized>
+							<button @onclick="AdminParameter" class="btnLogout">
 
-                                <span class="btnAdmin" aria-hidden="true"></span>
-                            </button>
-                        </Authorized>
-                    </AuthorizeView>
-                    <button @onclick="UserParameter" class="btnLogout"> <span class="oi oi-cog" aria-hidden="true"></span></button>
-                    <button @onclick="Deconnexion" class="btnLogout"><span class="oi oi-account-logout" aria-hidden="true"></span></button>
+								<span class="btnAdmin" aria-hidden="true"></span>
+							</button>
+						</Authorized>
+					</AuthorizeView>
+					<button @onclick="UserParameter" class="btnLogout"> <span class="oi oi-cog" aria-hidden="true"></span></button>
+					<button @onclick="Deconnexion" class="btnLogout"><span class="oi oi-account-logout" aria-hidden="true"></span></button>
 
-                    <!--add translate-->
-                    <select class="switchLanguage">
-                        <option value="fr-FR">Français</option>
-                        <option value="en-US">English</option>
-                        <option value="es-ES">Español</option>
-                        <option value="de-DE">Deutsch</option>
-                    </select>
+					<!--add translate-->
+					<select class="switchLanguage">
+						<option value="fr-FR">Français</option>
+						<option value="en-US">English</option>
+						<option value="es-ES">Español</option>
+						<option value="de-DE">Deutsch</option>
+					</select>
 
-                </div>
-            </div>
+				</div>
+			</div>
 
-        </div>
-    </div>
-    <SfSidebar class="dockSidebar sideBarMenu" Width="161" DockSize="60px" Target=".e-main-content"
-               EnableDock="true" Position="SidebarPosition.Left" @bind-IsOpen="ToggleSidebar"
-               MediaQuery="(min-width: 2000px)" Type="SidebarType.Auto">
-        <ChildContent>
-            <div class="dock">
-                <ul>
-                    <li class="sidebar-item" id="toggle">
-                        <a href="/counter" class="linkMenu">
-                            <span class="sb-icons icon-calendar e-sb-icon control-icon"></span>
-                            <span class="e-text" title="menu">Menu</span>
-                        </a>
-                    </li>
-                    <li class="sidebar-item">
-                        <a href="/featchdata" class="linkMenu">
-                            <span class="sb-icons icon-chart e-sb-icon control-icon"></span>
-                            <span class="e-text" title="home">Home</span>
-                        </a>
-                    </li>
-                    <AuthorizeView Roles="SomeCondition">
-                        <Authorized>
-                            <li class="sidebar-item">
-                                <a href="/featchdata" class="linkMenu">
-                                    <span class="sb-icons icon-chart e-sb-icon control-icon"></span>
-                                    <span class="e-text" title="profile">Profile</span>
-                                </a>
-                            </li>
-                        </Authorized>
-                    </AuthorizeView>
-                </ul>
-            </div>
-        </ChildContent>
-    </SfSidebar>
+		</div>
+	</div>
+	<SfSidebar class="dockSidebar sideBarMenu" Width="161" DockSize="60px" Target=".e-main-content"
+			   EnableDock="true" Position="SidebarPosition.Left" @bind-IsOpen="ToggleSidebar"
+			   MediaQuery="(min-width: 2000px)" Type="SidebarType.Auto">
+		<ChildContent>
+			<div class="dock">
+				<ul>
+					<li class="sidebar-item" id="toggle">
+						<a href="/counter" class="linkMenu d-flex align-items-center gap-2">
+							<span class="sb-icons icon-calendar e-sb-icon control-icon"></span>
+							<span class="e-text text-nowrap" title="menu">Menu</span>
+						</a>
+					</li>
+					<li class="sidebar-item">
+						<a href="/featchdata" class="linkMenu d-flex align-items-center gap-2">
+							<span class="sb-icons icon-chart e-sb-icon control-icon"></span>
+							<span class="e-text text-nowrap" title="home">Home</span>
+						</a>
+					</li>
+					<AuthorizeView Roles="SomeCondition">
+						<Authorized>
+							<li class="sidebar-item">
+								<a href="/featchdata" class="linkMenu">
+									<span class="sb-icons icon-chart e-sb-icon control-icon"></span>
+									<span class="e-text" title="profile">Profile</span>
+								</a>
+							</li>
+						</Authorized>
+					</AuthorizeView>
+				</ul>
+			</div>
+		</ChildContent>
+	</SfSidebar>
 
-    <main class="mainTest">
-        <article class="content px-4" style="min-height:100%;">
-            @Body
-        </article>
-    </main>
-    <footer>
-        <div class="bottom-details">
-            <div class="bottom_text">
+	<main class="mainTest">
+		<article class="content px-4" style="min-height:100%;">
+			@Body
+		</article>
+	</main>
+	<footer>
+		<div class="bottom-details">
+			<div class="bottom_text">
 
-                <span class="copyright_text">
-                    Copyright ©  @DateTime.UtcNow.Date.Year
-                    <a href="#" target="_blank" class="colorRed" title="someTitle" rel="nofollow noopener noreferrer">Some text.</a>All rights reserved
-                    <span style="color:#8A2336; font-weight:bold;padding-left:2px;">@version</span>
-                </span>
-                <span class="policy_terms">
-                    <a>Privacy policy</a>
-                    <a>Terms & condition</a>
-                </span>
+				<span class="copyright_text">
+					Copyright ©  @DateTime.UtcNow.Date.Year
+					<a href="#" target="_blank" class="colorRed" title="someTitle" rel="nofollow noopener noreferrer">Some text.</a>All rights reserved
+					<span style="color:#8A2336; font-weight:bold;padding-left:2px;">@version</span>
+				</span>
+				<span class="policy_terms">
+					<a>Privacy policy</a>
+					<a>Terms & condition</a>
+				</span>
 
-            </div>
-        </div>
-    </footer>
+			</div>
+		</div>
+	</footer>
 </div>
 
 @code {
-    string LangTranslate = "";
-    string DrapeauTranslate = "";
+	string LangTranslate = "";
+	string DrapeauTranslate = "";
 
-    private async void OnSelected(string val)
-    {
-    }
+	private async void OnSelected(string val)
+	{
+	}
 
-    private string custom_menu_arrow { get; set; } = "custom-button-close";
-    public void OnSelect(ClickEventArgs<ListData> args)
-    {
-        //JsRuntime.InvokeVoidAsync("open", args.ItemData.Href, "_blank");
-        Navigation.NavigateTo(args.ItemData.Href);
-    }
+	private string custom_menu_arrow { get; set; } = "custom-button-close";
+	public void OnSelect(ClickEventArgs<ListData> args)
+	{
+		//JsRuntime.InvokeVoidAsync("open", args.ItemData.Href, "_blank");
+		Navigation.NavigateTo(args.ItemData.Href);
+	}
 
-    // Specify the value of ListView component DataSource property.
-    public List<ListData> List = new List<ListData>
-    {
-        new ListData {Id="1", Text = "Menu123", IconCss = "sb-icons icon-calendar e-sb-icon control-icon", Href = "/counter"  },
-        new ListData {Id="2",Text = "Menu2", IconCss = "sb-icons icon-chart e-sb-icon control-icon", Href = "/fetchdata" },
-    };
-    public class ListData
-    {
-        public string Id { get; set; }
-        public string Text { get; set; }
-        public string IconCss { get; set; }
-        public string Href { get; set; }
-    }
+	// Specify the value of ListView component DataSource property.
+	public List<ListData> List = new List<ListData>
+	{
+		new ListData {Id="1", Text = "Menu123", IconCss = "sb-icons icon-calendar e-sb-icon control-icon", Href = "/counter"  },
+		new ListData {Id="2",Text = "Menu2", IconCss = "sb-icons icon-chart e-sb-icon control-icon", Href = "/fetchdata" },
+	};
+	public class ListData
+	{
+		public string Id { get; set; }
+		public string Text { get; set; }
+		public string IconCss { get; set; }
+		public string Href { get; set; }
+	}
 
-    public bool ToggleSidebar = false;
-    public async void MenuButtonClick()
-    {
-        ToggleSidebar = !ToggleSidebar;
+	public bool ToggleSidebar = false;
+	public async void MenuButtonClick()
+	{
+		ToggleSidebar = !ToggleSidebar;
 
-        if (ToggleSidebar)
-        {
-            custom_menu_arrow = "custom-button-close";
-        }
-        else if (!ToggleSidebar)
-        {
-            custom_menu_arrow = "custom-button-open";
-        }
-    }
+		if (ToggleSidebar)
+		{
+			custom_menu_arrow = "custom-button-close";
+		}
+		else if (!ToggleSidebar)
+		{
+			custom_menu_arrow = "custom-button-open";
+		}
+	}
 
-    public string HeaderText = "Header";
+	public string HeaderText = "Header";
 
-    System.Version? appVersion { get; set; }
-    string version { get; set; }
-    string cookieByUser = "";
-    string UserCode = "";
+	System.Version? appVersion { get; set; }
+	string version { get; set; }
+	string cookieByUser = "";
+	string UserCode = "";
 
-    public async void VerifPrenom()
-    {
-        if (UserCode != "")
-        {
-            UserCode = "";
-            StateHasChanged();
-        }
-    }
+	public async void VerifPrenom()
+	{
+		if (UserCode != "")
+		{
+			UserCode = "";
+			StateHasChanged();
+		}
+	}
 
-    protected override async Task OnInitializedAsync()
-    {
-        if (System.Reflection.Assembly.GetExecutingAssembly().GetName().Version != null)
-        {
-            appVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
-            version = String.Format("V{0}", appVersion);
-        }
+	protected override async Task OnInitializedAsync()
+	{
+		if (System.Reflection.Assembly.GetExecutingAssembly().GetName().Version != null)
+		{
+			appVersion = System.Reflection.Assembly.GetExecutingAssembly().GetName().Version;
+			version = String.Format("V{0}", appVersion);
+		}
 
-        this.StateHasChanged();
-    }
+		this.StateHasChanged();
+	}
 
-    string Bearer = "";
+	string Bearer = "";
 
-    protected override async Task OnAfterRenderAsync(bool firstRender)
-    {
-        base.OnAfterRender(firstRender);
-        if (firstRender)
-        {
-            StateHasChanged();
-        }
-        VerifPrenom();
-    }
+	protected override async Task OnAfterRenderAsync(bool firstRender)
+	{
+		base.OnAfterRender(firstRender);
+		if (firstRender)
+		{
+			StateHasChanged();
+		}
+		VerifPrenom();
+	}
 
-    public async void Deconnexion()
-    {
-        Bearer = "";
+	public async void Deconnexion()
+	{
+		Bearer = "";
 
-        Navigation.NavigateTo("");
+		Navigation.NavigateTo("");
 
-        this.StateHasChanged();
-    }
+		this.StateHasChanged();
+	}
 
-    public void UserParameter()
-    {
-        Navigation.NavigateTo("userSettings");
-    }
+	public void UserParameter()
+	{
+		Navigation.NavigateTo("userSettings");
+	}
 
-    public void AdminParameter()
-    {
-        Navigation.NavigateTo("admin");
-    }
+	public void AdminParameter()
+	{
+		Navigation.NavigateTo("admin");
+	}
 }
 
 <style>
-    .linkMenu {
-        text-decoration: none;
-    }
-
-    .switchLanguage {
-        width: 75px;
-        margin: 10px;
-        font-family: Arial;
-        background-color: transparent;
-        cursor: pointer;
-        border: none;
-        outline: none;
-        color: #B2AFAF;
-        font-size: 13px;
-    }
-
-    .dropbtn {
-        padding: 5px;
-        cursor: pointer;
-    }
-
-    .e-sidebar.e-left.e-open.e-disable-animation, .e-sidebar.e-right.e-open.e-disable-animation, .e-sidebar.e-right.e-close.e-disable-animation, .e-sidebar.e-left.e-close.e-disable-animation {
-        top: 50px;
-    }
-
-    /* Sample specific styles */
-    .container-fluid {
-        padding-left: 0;
-        padding-right: 0;
-    }
-
-    .maincontent {
-        margin-left: 57px;
-    }
-
-    #wrapper {
-    }
-
-        #wrapper .content {
-            font-size: 14px;
-            padding: 15px;
-        }
-    /* Specifies the Sidebar component related styles */
-    .dockSidebar.e-sidebar.e-right.e-close {
-        visibility: visible;
-        transform: translateX(0%);
-    }
-
-    .dockSidebar .e-sb-icon::before {
-        font-size: 24px;
-    }
-
-    .dockSidebar.e-close .sidebar-item {
-        padding: 5px 20px;
-    }
-
-    .dockSidebar.e-dock.e-close span.e-text {
-        display: none;
-    }
-
-    .dockSidebar.e-dock.e-open span.e-text {
-        display: inline-block;
-    }
-
-    .dockSidebar span.e-icons {
-        line-height: 2
-    }
-
-    .e-open .e-icons {
-        margin-right: 16px;
-    }
-
-    .e-open .e-text {
-        overflow: hidden;
-        text-overflow: ellipsis;
-        line-height: 23px;
-        font-size: 15px;
-    }
-    /* Specifies the ListView component related styles */
-    .e-bigger .dockSidebar .e-listview .e-list-icon + .e-list-text {
-        padding-left: 10px;
-    }
-
-    .bootstrap4.e-bigger .dockSidebar .e-listview .e-list-icon + .e-list-text {
-        padding-left: 4px;
-    }
-
-    .bootstrap4.e-bigger .dockSidebar .e-listview .e-list-icon.sb-icons,
-    .bootstrap.e-bigger .dockSidebar .e-listview .e-list-icon.sb-icons,
-    .highcontrast.e-bigger .dockSidebar .e-listview .e-list-icon.sb-icons {
-        margin-top: -10px;
-    }
-
-    .bootstrap.e-bigger .dockSidebar .e-listview .e-list-icon.sb-icons,
-    .bootstrap-dark.e-bigger .dockSidebar .e-listview .e-list-icon.sb-icons {
-        margin-top: -15px;
-    }
-
-    .material.e-bigger .dockSidebar .e-listview .e-list-icon.sb-icons,
-    .material-dark.e-bigger .dockSidebar .e-listview .e-list-icon.sb-icons {
-        margin-top: -18px;
-    }
-
-    .fabric.e-bigger .dockSidebar .e-listview .e-list-icon.sb-icons,
-    .fabric-dark.e-bigger .dockSidebar .e-listview .e-list-icon.sb-icons {
-        margin-top: -18px;
-    }
-
-    .e-bigger .dockSidebar .e-listview .e-list-icon.sb-icons::before {
-        font-size: 26px;
-    }
-
-    .bootstrap5.e-bigger .dockSidebar .e-listview .e-list-icon.sb-icons,
-    .bootstrap5-dark.e-bigger .dockSidebar .e-listview .e-list-icon.sb-icons {
-        margin-bottom: -10px;
-    }
-
-    .tailwind.e-bigger .dockSidebar .e-listview .e-list-icon.sb-icons,
-    .tailwind-dark.e-bigger .dockSidebar .e-listview .e-list-icon.sb-icons {
-        margin-bottom: -3px;
-    }
-
-    .dockSidebar .e-listview .e-list-icon.sb-icons {
-        margin: 0;
-    }
-
-    .material .dockSidebar .e-listview .e-list-icon.sb-icons,
-    .material-dark .dockSidebar .e-listview .e-list-icon.sb-icons,
-    .bootstrap .dockSidebar .e-listview .e-list-icon.sb-icons,
-    .bootstrap-dark .dockSidebar .e-listview .e-list-icon.sb-icons {
-        margin-top: -8px;
-    }
-
-    .tailwind .dockSidebar .e-listview .e-list-icon.sb-icons,
-    .tailwind-dark .dockSidebar .e-listview .e-list-icon.sb-icons {
-        margin: 0 5px;
-        margin-top: -4px;
-    }
-
-    .bootstrap4 .dockSidebar .e-listview .e-list-icon.sb-icons {
-        margin-top: -8px;
-    }
-
-    .bootstrap5 .dockSidebar .e-listview .e-list-icon.sb-icons,
-    .bootstrap5-dark .dockSidebar .e-listview .e-list-icon.sb-icons {
-        margin-bottom: -12px;
-    }
-
-    .fabric .dockSidebar .e-listview .e-list-icon.sb-icons,
-    .fabric-dark .dockSidebar .e-listview .e-list-icon.sb-icons {
-        margin-top: -4px;
-    }
-
-    .dockSidebar .e-listview {
-        border: 0px;
-        border-radius: 0;
-    }
-    /* Specifies the Toolbar component related styles */
-    .dockToolbar.e-toolbar {
-        border-left: 0px;
-        border-right: 0px;
-    }
-    /* Specifies the ListView template item related styles */
-    .fabric .dockSidebar .e-listview:not(.e-list-template) .e-list-item,
-    .material .dockSidebar .e-listview:not(.e-list-template) .e-list-item,
-    .material-dark .dockSidebar .e-listview:not(.e-list-template) .e-list-item,
-    .bootstrap .dockSidebar .e-listview:not(.e-list-template) .e-list-item,
-    .fabric-dark .dockSidebar .e-listview:not(.e-list-template) .e-list-item,
-    .bootstrap-dark .dockSidebar .e-listview:not(.e-list-template) .e-list-item,
-    .bootstrap5 .dockSidebar .e-listview:not(.e-list-template) .e-list-item,
-    .bootstrap4 .dockSidebar .e-listview:not(.e-list-template) .e-list-item,
-    .bootstrap5-dark .dockSidebar .e-listview:not(.e-list-template) .e-list-item {
-        padding-left: 16px;
-        padding-right: 16px;
-    }
-
-    .tailwind .e-dock.e-close.dockSidebar .e-listview:not(.e-list-template) .e-list-item,
-    .tailwind-dark .e-dock.e-close.dockSidebar .e-listview:not(.e-list-template) .e-list-item {
-        padding-left: 12px;
-        padding-right: 12px;
-    }
-
-    .highcontrast .dockSidebar .e-listview:not(.e-list-template) .e-list-item {
-        padding-left: 14px;
-        padding-right: 14px;
-    }
-    /* Specifies the Toolbar component related styles in light themes*/
-    .material .dockToolbar.e-toolbar {
-        border-bottom: 1px solid rgba(0,0,0,0.12);
-    }
-
-    .fabric .dockToolbar.e-toolbar {
-        border-bottom: 1px solid #eaeaea;
-    }
-
-    .tailwind .dockToolbar.e-toolbar {
-        border-bottom: 1px solid #d7d7d7;
-    }
-
-    .bootstrap5-dark .dockToolbar.e-toolbar {
-        border-bottom: 1px solid #444c54;
-    }
-
-    .bootstrap5 .dockToolbar.e-toolbar {
-        border-bottom: 1px solid #dee2e6;
-    }
-    /* Specifies the Toolbar component related styles in dark themes*/
-    .material-dark .dockToolbar.e-toolbar {
-        border-bottom: 1px solid #616161;
-    }
-
-    .fabric-dark .dockToolbar.e-toolbar {
-        border-bottom: 1px solid #414040;
-    }
-
-    .tailwind-dark .dockToolbar.e-toolbar {
-        border-bottom: 1px solid #4b5563;
-    }
-    /* Specifies the Sidebar component related styles in light themes*/
-    .material .dockSidebar {
-        border-right: 1px solid rgba(0,0,0,0.12) !important;
-    }
-
-    .fabric .dockSidebar {
-        border-right: 1px solid #eaeaea !important;
-    }
-
-    .tailwind .dockSidebar {
-        border-right: 1px solid #d7d7d7 !important;
-    }
-    /* Specifies the Sidebar component related styles in dark themes*/
-    .bootstrap5-dark .dockSidebar {
-        border-right: 1px solid #444c54 !important;
-    }
-
-    .bootstrap5 .dockSidebar {
-        border-right: 1px solid #dee2e6 !important;
-    }
-
-    .material-dark .dockSidebar {
-        border-right: 1px solid #616161 !important;
-    }
-
-    .fabric-dark .dockSidebar {
-        border-right: 1px solid #414040 !important;
-    }
-
-    .tailwind-dark .dockSidebar {
-        border-right: 1px solid #4b5563 !important;
-    }
-
-    .e-bigger.bootstrap5 .dockSidebar .e-listview:not(.e-list-template) .e-list-item,
-    .e-bigger.bootstrap5-dark .dockSidebar .e-listview:not(.e-list-template) .e-list-item {
-        height: 43px;
-    }
-
-    #wrapper .dockSidebar {
-        z-index: 20 !important;
-    }
-
-    /* Specifies the Sidebar component icons related styles*/
-    @@font-face {
-        font-family: 'e-icons';
-    }
-
-    .dockSidebar .e-sb-icon {
-        font-family: 'e-icons';
-        font-weight: bold;
-        text-transform: none;
-        -webkit-font-smoothing: antialiased;
-        -moz-osx-font-smoothing: grayscale;
-    }
-    /* Specifies the ListView component icons related styles*/
-    .dockSidebar .icon-calendar::before {
-        content: '\e876';
-    }
-
-    .dockSidebar .icon-chart::before {
-        content: '\e88c';
-    }
-
-    .dockSidebar .icon-box::before {
-        content: '\e884';
-    }
-
-    /* Specifies the Toolbar component related styles*/
-    .e-folder {
-        font-size: 16px;
-        font-weight: 500;
-    }
-
-    .e-bigger .e-folder {
-        font-size: 18px;
-    }
-    /* Specifies the Toolbar component related styles for light themes*/
-    .bootstrap5 .e-folder-name, .bootstrap5-dark .e-folder-name {
-        margin-top: -2px;
-    }
-
-    .bootstrap4 .e-folder-name,
-    .bootstrap .e-folder-name, .bootstrap-dark .e-folder-name {
-        margin-top: 3px;
-    }
-
-    .material .e-folder-name, .material-dark .e-folder-name {
-        margin-top: 1px;
-    }
-
-    @@font-face {
-        font-family: 'e-icons';
-        font-weight: normal;
-        font-style: normal;
-    }
-
-    .e-bigger .e-tbar-btn .tb-icons {
-        font-size: 20px;
-        border-color: transparent;
-    }
-
-    .e-btn:hover, .e-css.e-btn:hover {
-        border: none;
-        border-color: transparent;
-    }
-
-    .e-tbar-btn {
-        border: none;
-        border-color: transparent;
-    }
-
-        .e-tbar-btn:hover {
-            border: none;
-            border-color: transparent;
-        }
-
-        .e-tbar-btn:active {
-            border: none;
-            border-color: transparent;
-        }
-
-        .e-tbar-btn:focus {
-            border: none;
-            border-color: transparent;
-        }
-
-    .e-btn, .e-css.e-btn {
-        border: none;
-        border-color: transparent;
-    }
-
-    .e-tbar-btn .tb-icons {
-        font-family: 'e-icons';
-        speak: none;
-        font-size: 16px;
-        text-transform: none;
-        color: #8A2336;
-    }
-
-    .e-listview .e-list-item {
-        font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
-        color: #8A2336;
-        font-weight: bold;
-    }
-
-        .e-listview .e-list-item.e-focused, .e-listview .e-list-item.e-focused.e-active.e-checklist, .e-listview .e-list-item:hover {
-            background-color: #E4E3E1;
-            color: #8A2336;
-        }
-
-    .e-toolbar .e-icons {
-        font-size: 20px;
-    }
-
-    .e-tbar-menu-icon:before {
-        content: "\e87d";
-    }
-
-    .bootstrap5:not(.e-bigger) .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
-    .bootstrap5-dark:not(.e-bigger) .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
-    .bootstrap4:not(.e-bigger) .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
-    .bootstrap:not(.e-bigger) .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
-    .bootstrap-dark:not(.e-bigger) .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
-    .highcontrast:not(.e-bigger) .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
-    .material:not(.e-bigger) .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
-    .material-dark:not(.e-bigger) .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child {
-        margin-left: 10px;
-    }
-
-    .tailwind:not(.e-bigger) .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
-    .tailwind-dark:not(.e-bigger) .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child {
-        margin-left: 12px;
-        padding: 2px;
-    }
-
-    .tailwind:not(.e-bigger) .dockToolbar.e-toolbar .e-toolbar-items:first-child > .e-toolbar-item:last-child,
-    .tailwind-dark:not(.e-bigger) .dockToolbar.e-toolbar .e-toolbar-items:first-child > .e-toolbar-item:last-child {
-        padding: 0;
-    }
-
-    .fabric:not(.e-bigger) .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
-    .fabric-dark:not(.e-bigger) .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child {
-        margin-left: 8px;
-    }
-
-    .bootstrap5.e-bigger .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
-    .bootstrap5-dark.e-bigger .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
-    .highcontrast.e-bigger .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child {
-        margin-left: 4px;
-    }
-
-    .material.e-bigger .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
-    .material-dark.e-bigger .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child {
-        margin-left: 6px;
-    }
-
-    .bootstrap4.e-bigger .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
-    .tailwind.e-bigger .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
-    .tailwind-dark.e-bigger .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child {
-        margin-left: 8px;
-    }
-
-    .custom-button-open, .custom-button-open:hover, .custom-button-open:focus, .custom-button-open:active {
-        color: #8A2336 !important;
-        font-size: 20px !important;
-        font-weight: bold;
-        background-color: transparent !important;
-        border: none !important;
-        border-color: transparent !important;
-        outline: none !important;
-        text-decoration: none !important;
-    }
-
-        .custom-button-open:before {
-            content: '\e87e';
-        }
-
-    .custom-button-close, .custom-button-close:hover, .custom-button-close:focus, .custom-button-close:active {
-        color: #8A2336 !important;
-        font-size: 20px !important;
-        font-weight: bold;
-        background-color: transparent !important;
-        border: none !important;
-        border-color: transparent !important;
-        outline: none !important;
-        text-decoration: none !important;
-    }
-
-        .custom-button-close:before {
-            content: '\e87d';
-        }
-
-    #header {
-        text-align: center;
-        background-color: #F2F2F2;
-        padding-top: 5px;
-        text-align: center;
-        padding-left: 5px;
-    }
-
-    .main-text-content {
-        font-size: 18px;
-        text-align: left;
-        padding-top: 50px;
-        padding-left: 30px;
-    }
-
-    .e-sidebar {
-    }
-
-        .e-sidebar.e-left {
-            top: 55px;
-        }
-
-        .e-sidebar.e-right {
-            top: 55px;
-        }
-
-    @@font-face {
-        font-family: 'e-icons';
-        font-weight: normal;
-        font-style: normal;
-    }
-
-    .main > div {
-        padding: 0px !important;
-    }
-
-    .e-listview .e-list-icon + .e-list-text {
-        margin-bottom: 5px;
-        margin-left: 10px;
-        color: #999595;
-    }
-
-    /*fixer hauteur sidebar-menu*/
-    .sideBarMenu {
-        background-color: #F2F2F2;
-        margin-bottom: -101%;
-        padding-bottom: 101%;
-        overflow: hidden;
-    }
-
-    /*menu open new window for menu*/
-    .nav-link .e-list-content {
-        padding-left: 47px;
-        margin-top: -25px;
-        color: blue;
-    }
-
-    .nav-link, .nav-link:hover, .nav-link:active, .nav-link:visited, .nav-link:focus {
-        padding-left: 2px !important;
-        color: blue;
-    }
-
-    .btnAdmin:before {
-        content: url("");
-    }
-
-
-
-
-    /*add style for list static menu*/
-    /* Content area styles */
-    .title {
-        font-size: 20px;
-    }
-
-    /* Sidebar styles */
-    .e-sidebar .e-icons::before {
-        font-size: 25px;
-    }
-
-    /* dockbar icon Style */
-    .e-sidebar .home::before {
-        content: '\e102';
-    }
-
-    .e-sidebar .profile::before {
-        content: '\e10c';
-    }
-
-    .e-sidebar .info::before {
-        content: '\e11b';
-    }
-
-    .e-sidebar .settings::before {
-        content: '\e10b';
-    }
-
-    .e-sidebar .expand::before,
-    .e-sidebar.e-right.e-open .expand::before {
-        content: '\e10f';
-    }
-
-    .e-sidebar.e-open .expand::before,
-    .e-sidebar.e-right .expand::before {
-        content: '\e10e';
-    }
-
-    /* end of dockbar icon Style */
-
-    .e-sidebar.e-dock.e-close span.e-text {
-        display: none;
-    }
-
-    .e-sidebar.e-dock.e-open span.e-text {
-        display: inline-block;
-    }
-
-    .e-sidebar li {
-        list-style-type: none;
-        cursor: pointer;
-    }
-
-    .e-sidebar ul {
-        padding: 0px;
-    }
-
-
-    .e-sidebar span.e-icons {
-        color: #c0c2c5;
-        line-height: 2
-    }
-
-    .e-open .e-icons {
-        margin-right: 16px;
-    }
-
-    .e-open .e-text {
-        overflow: hidden;
-        font-size: 15px;
-    }
-
-    .sidebar-item {
-        text-align: center;
-        border-bottom: 1px #e5e5e58a solid;
-    }
-
-    .e-sidebar.e-open .sidebar-item {
-        text-align: left;
-        padding-left: 15px;
-        color: #c0c2c5;
-    }
-
-    .e-sidebar {
-        overflow: hidden;
-    }
-
-    @@font-face {
-        font-family: 'e-icons';
-        font-weight: normal;
-        font-style: normal;
-    }
-
-    .main > div {
-        padding: 0px !important;
-    }
-    /* end of sidebar styles */
+	.linkMenu {
+		text-decoration: none;
+	}
+
+	.switchLanguage {
+		width: 75px;
+		margin: 10px;
+		font-family: Arial;
+		background-color: transparent;
+		cursor: pointer;
+		border: none;
+		outline: none;
+		color: #B2AFAF;
+		font-size: 13px;
+	}
+
+	.e-sidebar.e-left.e-open.e-disable-animation, .e-sidebar.e-right.e-open.e-disable-animation, .e-sidebar.e-right.e-close.e-disable-animation, .e-sidebar.e-left.e-close.e-disable-animation {
+		top: 50px;
+	}
+
+	#wrapper {
+	}
+
+		#wrapper .content {
+			font-size: 14px;
+			padding: 15px;
+		}
+	/* Specifies the Sidebar component related styles */
+	.dockSidebar.e-sidebar.e-right.e-close {
+		visibility: visible;
+		transform: translateX(0%);
+	}
+
+	.dockSidebar .e-sb-icon::before {
+		font-size: 24px;
+	}
+
+	.dockSidebar.e-close .sidebar-item {
+		padding: 5px 20px;
+	}
+
+	.dockSidebar.e-dock.e-close span.e-text {
+		display: none;
+	}
+
+	.dockSidebar.e-dock.e-open span.e-text {
+		display: inline-block;
+	}
+
+	.dockSidebar span.e-icons {
+		line-height: 2
+	}
+
+	.e-open .e-icons {
+		margin-right: 16px;
+	}
+
+	.e-open .e-text {
+		overflow: hidden;
+		text-overflow: ellipsis;
+		line-height: 23px;
+		font-size: 15px;
+	}
+
+	/* Specifies the Toolbar component related styles in light themes*/
+	.material .dockToolbar.e-toolbar {
+		border-bottom: 1px solid rgba(0,0,0,0.12);
+	}
+
+	.fabric .dockToolbar.e-toolbar {
+		border-bottom: 1px solid #eaeaea;
+	}
+
+	.tailwind .dockToolbar.e-toolbar {
+		border-bottom: 1px solid #d7d7d7;
+	}
+
+	.bootstrap5-dark .dockToolbar.e-toolbar {
+		border-bottom: 1px solid #444c54;
+	}
+
+	.bootstrap5 .dockToolbar.e-toolbar {
+		border-bottom: 1px solid #dee2e6;
+	}
+	/* Specifies the Toolbar component related styles in dark themes*/
+	.material-dark .dockToolbar.e-toolbar {
+		border-bottom: 1px solid #616161;
+	}
+
+	.fabric-dark .dockToolbar.e-toolbar {
+		border-bottom: 1px solid #414040;
+	}
+
+	.tailwind-dark .dockToolbar.e-toolbar {
+		border-bottom: 1px solid #4b5563;
+	}
+	/* Specifies the Sidebar component related styles in light themes*/
+	.material .dockSidebar {
+		border-right: 1px solid rgba(0,0,0,0.12) !important;
+	}
+
+	.fabric .dockSidebar {
+		border-right: 1px solid #eaeaea !important;
+	}
+
+	.tailwind .dockSidebar {
+		border-right: 1px solid #d7d7d7 !important;
+	}
+	/* Specifies the Sidebar component related styles in dark themes*/
+	.bootstrap5-dark .dockSidebar {
+		border-right: 1px solid #444c54 !important;
+	}
+
+	.bootstrap5 .dockSidebar {
+		border-right: 1px solid #dee2e6 !important;
+	}
+
+	.material-dark .dockSidebar {
+		border-right: 1px solid #616161 !important;
+	}
+
+	.fabric-dark .dockSidebar {
+		border-right: 1px solid #414040 !important;
+	}
+
+	.tailwind-dark .dockSidebar {
+		border-right: 1px solid #4b5563 !important;
+	}
+
+	.e-bigger.bootstrap5 .dockSidebar .e-listview:not(.e-list-template) .e-list-item,
+	.e-bigger.bootstrap5-dark .dockSidebar .e-listview:not(.e-list-template) .e-list-item {
+		height: 43px;
+	}
+
+	#wrapper .dockSidebar {
+		z-index: 20 !important;
+	}
+
+	/* Specifies the Sidebar component icons related styles*/
+	@@font-face {
+		font-family: 'e-icons';
+	}
+
+	.dockSidebar .e-sb-icon {
+		font-family: 'e-icons';
+		font-weight: bold;
+		text-transform: none;
+		-webkit-font-smoothing: antialiased;
+		-moz-osx-font-smoothing: grayscale;
+	}
+	/* Specifies the ListView component icons related styles*/
+	.dockSidebar .icon-calendar::before {
+		content: '\e876';
+	}
+
+	.dockSidebar .icon-chart::before {
+		content: '\e88c';
+	}
+
+	.dockSidebar .icon-box::before {
+		content: '\e884';
+	}
+
+	/* Specifies the Toolbar component related styles*/
+	.e-folder {
+		font-size: 16px;
+		font-weight: 500;
+	}
+
+	.e-bigger .e-folder {
+		font-size: 18px;
+	}
+	/* Specifies the Toolbar component related styles for light themes*/
+	.bootstrap5 .e-folder-name, .bootstrap5-dark .e-folder-name {
+		margin-top: -2px;
+	}
+
+	.bootstrap4 .e-folder-name,
+	.bootstrap .e-folder-name, .bootstrap-dark .e-folder-name {
+		margin-top: 3px;
+	}
+
+	.material .e-folder-name, .material-dark .e-folder-name {
+		margin-top: 1px;
+	}
+
+	@@font-face {
+		font-family: 'e-icons';
+		font-weight: normal;
+		font-style: normal;
+	}
+
+	.e-bigger .e-tbar-btn .tb-icons {
+		font-size: 20px;
+		border-color: transparent;
+	}
+
+	.e-btn:hover, .e-css.e-btn:hover {
+		border: none;
+		border-color: transparent;
+	}
+
+	.e-tbar-btn {
+		border: none;
+		border-color: transparent;
+	}
+
+		.e-tbar-btn:hover {
+			border: none;
+			border-color: transparent;
+		}
+
+		.e-tbar-btn:active {
+			border: none;
+			border-color: transparent;
+		}
+
+		.e-tbar-btn:focus {
+			border: none;
+			border-color: transparent;
+		}
+
+	.e-btn, .e-css.e-btn {
+		border: none;
+		border-color: transparent;
+	}
+
+	.e-tbar-btn .tb-icons {
+		font-family: 'e-icons';
+		speak: none;
+		font-size: 16px;
+		text-transform: none;
+		color: #8A2336;
+	}
+
+	.e-listview .e-list-item {
+		font-family: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+		color: #8A2336;
+		font-weight: bold;
+	}
+
+		.e-listview .e-list-item.e-focused, .e-listview .e-list-item.e-focused.e-active.e-checklist, .e-listview .e-list-item:hover {
+			background-color: #E4E3E1;
+			color: #8A2336;
+		}
+
+	.e-toolbar .e-icons {
+		font-size: 20px;
+	}
+
+	.e-tbar-menu-icon:before {
+		content: "\e87d";
+	}
+
+	.bootstrap5:not(.e-bigger) .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
+	.bootstrap5-dark:not(.e-bigger) .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
+	.bootstrap4:not(.e-bigger) .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
+	.bootstrap:not(.e-bigger) .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
+	.bootstrap-dark:not(.e-bigger) .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
+	.highcontrast:not(.e-bigger) .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
+	.material:not(.e-bigger) .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
+	.material-dark:not(.e-bigger) .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child {
+		margin-left: 10px;
+	}
+
+	.tailwind:not(.e-bigger) .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
+	.tailwind-dark:not(.e-bigger) .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child {
+		margin-left: 12px;
+		padding: 2px;
+	}
+
+	.tailwind:not(.e-bigger) .dockToolbar.e-toolbar .e-toolbar-items:first-child > .e-toolbar-item:last-child,
+	.tailwind-dark:not(.e-bigger) .dockToolbar.e-toolbar .e-toolbar-items:first-child > .e-toolbar-item:last-child {
+		padding: 0;
+	}
+
+	.fabric:not(.e-bigger) .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
+	.fabric-dark:not(.e-bigger) .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child {
+		margin-left: 8px;
+	}
+
+	.bootstrap5.e-bigger .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
+	.bootstrap5-dark.e-bigger .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
+	.highcontrast.e-bigger .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child {
+		margin-left: 4px;
+	}
+
+	.material.e-bigger .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
+	.material-dark.e-bigger .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child {
+		margin-left: 6px;
+	}
+
+	.bootstrap4.e-bigger .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
+	.tailwind.e-bigger .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
+	.tailwind-dark.e-bigger .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child {
+		margin-left: 8px;
+	}
+
+	.custom-button-open, .custom-button-open:hover, .custom-button-open:focus, .custom-button-open:active {
+		color: #8A2336 !important;
+		font-size: 20px !important;
+		font-weight: bold;
+		background-color: transparent !important;
+		border: none !important;
+		border-color: transparent !important;
+		outline: none !important;
+		text-decoration: none !important;
+	}
+
+		.custom-button-open:before {
+			content: '\e87e';
+		}
+
+	.custom-button-close, .custom-button-close:hover, .custom-button-close:focus, .custom-button-close:active {
+		color: #8A2336 !important;
+		font-size: 20px !important;
+		font-weight: bold;
+		background-color: transparent !important;
+		border: none !important;
+		border-color: transparent !important;
+		outline: none !important;
+		text-decoration: none !important;
+	}
+
+		.custom-button-close:before {
+			content: '\e87d';
+		}
+
+	#header {
+		text-align: center;
+		background-color: #F2F2F2;
+		padding-top: 5px;
+		text-align: center;
+		padding-left: 5px;
+	}
+
+	.main-text-content {
+		font-size: 18px;
+		text-align: left;
+		padding-top: 50px;
+		padding-left: 30px;
+	}
+
+	.e-sidebar {
+	}
+
+		.e-sidebar.e-left {
+			top: 55px;
+		}
+
+		.e-sidebar.e-right {
+			top: 55px;
+		}
+
+	@@font-face {
+		font-family: 'e-icons';
+		font-weight: normal;
+		font-style: normal;
+	}
+
+	.main > div {
+		padding: 0px !important;
+	}
+
+	.e-listview .e-list-icon + .e-list-text {
+		margin-bottom: 5px;
+		margin-left: 10px;
+		color: #999595;
+	}
+
+	/*fixer hauteur sidebar-menu*/
+	.sideBarMenu {
+		background-color: #F2F2F2;
+		margin-bottom: -101%;
+		padding-bottom: 101%;
+		overflow: hidden;
+	}
+
+	/*menu open new window for menu*/
+	.nav-link .e-list-content {
+		padding-left: 47px;
+		margin-top: -25px;
+		color: blue;
+	}
+
+	.nav-link, .nav-link:hover, .nav-link:active, .nav-link:visited, .nav-link:focus {
+		padding-left: 2px !important;
+		color: blue;
+	}
+
+	.btnAdmin:before {
+		content: url("");
+	}
+
+
+
+
+	/*add style for list static menu*/
+	/* Content area styles */
+	.title {
+		font-size: 20px;
+	}
+
+	/* Sidebar styles */
+	.e-sidebar .e-icons::before {
+		font-size: 25px;
+	}
+
+	/* dockbar icon Style */
+	.e-sidebar .home::before {
+		content: '\e102';
+	}
+
+	.e-sidebar .profile::before {
+		content: '\e10c';
+	}
+
+	.e-sidebar .info::before {
+		content: '\e11b';
+	}
+
+	.e-sidebar .settings::before {
+		content: '\e10b';
+	}
+
+	.e-sidebar .expand::before,
+	.e-sidebar.e-right.e-open .expand::before {
+		content: '\e10f';
+	}
+
+	.e-sidebar.e-open .expand::before,
+	.e-sidebar.e-right .expand::before {
+		content: '\e10e';
+	}
+
+	/* end of dockbar icon Style */
+
+	.e-sidebar li {
+		list-style-type: none;
+		cursor: pointer;
+	}
+
+	.e-sidebar ul {
+		padding: 0px;
+	}
+
+
+	.e-sidebar span.e-icons {
+		color: #c0c2c5;
+		line-height: 2
+	}
+
+	.e-open .e-icons {
+		margin-right: 16px;
+	}
+
+	.e-open .e-text {
+		overflow: hidden;
+		font-size: 15px;
+	}
+
+	.sidebar-item {
+		text-align: center;
+		border-bottom: 1px #e5e5e58a solid;
+	}
+
+	.e-sidebar.e-open .sidebar-item {
+		padding: 5px 20px;
+		color: #c0c2c5;
+	}
+
+	.e-sidebar {
+		overflow: hidden;
+	}
+
+	@@font-face {
+		font-family: 'e-icons';
+		font-weight: normal;
+		font-style: normal;
+	}
+
+	.main > div {
+		padding: 0px !important;
+	}
+	/* end of sidebar styles */
 </style>
