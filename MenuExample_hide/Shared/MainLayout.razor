@@ -58,24 +58,24 @@
 			<div class="dock">
 				<ul>
 					<li class="sidebar-item" id="toggle">
-						<a href="/counter" class="linkMenu d-flex align-items-center gap-2">
+						<NavLink href="counter" class="linkMenu d-flex align-items-center gap-2 nav-link">
 							<span class="sb-icons icon-calendar e-sb-icon control-icon"></span>
 							<span class="e-text text-nowrap" title="menu">Menu</span>
-						</a>
+						</NavLink>
 					</li>
 					<li class="sidebar-item">
-						<a href="/featchdata" class="linkMenu d-flex align-items-center gap-2">
+						<NavLink href="featchdata" class="linkMenu d-flex align-items-center gap-2 nav-link">
 							<span class="sb-icons icon-chart e-sb-icon control-icon"></span>
 							<span class="e-text text-nowrap" title="home">Home</span>
-						</a>
+						</NavLink>
 					</li>
 					<AuthorizeView Roles="SomeCondition">
 						<Authorized>
 							<li class="sidebar-item">
-								<a href="/featchdata" class="linkMenu">
+								<NavLink href="featchdata" class="linkMenu d-flex align-items-center gap-2 nav-link">
 									<span class="sb-icons icon-chart e-sb-icon control-icon"></span>
 									<span class="e-text" title="profile">Profile</span>
-								</a>
+								</NavLink>
 							</li>
 						</Authorized>
 					</AuthorizeView>
@@ -212,8 +212,17 @@
 }
 
 <style>
-	.linkMenu {
+	.linkMenu, .linkMenu:hover, .linkMenu:active {
 		text-decoration: none;
+		color: green;
+	}
+
+		.linkMenu:hover, .linkMenu:active, .linkMenu:focus {
+			background-color: red !important;
+		}
+
+	.nav-item ::deep a.active {
+		background-color: yellow !important;
 	}
 
 	.switchLanguage {
