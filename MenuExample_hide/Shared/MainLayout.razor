@@ -64,7 +64,7 @@
 						</NavLink>
 					</li>
 					<li class="sidebar-item">
-						<NavLink href="featchdata" class="linkMenu d-flex align-items-center gap-2 nav-link">
+						<NavLink href="fetchdata" class="linkMenu d-flex align-items-center gap-2 nav-link">
 							<span class="sb-icons icon-chart e-sb-icon control-icon"></span>
 							<span class="e-text text-nowrap" title="home">Home</span>
 						</NavLink>
@@ -72,7 +72,7 @@
 					<AuthorizeView Roles="SomeCondition">
 						<Authorized>
 							<li class="sidebar-item">
-								<NavLink href="featchdata" class="linkMenu d-flex align-items-center gap-2 nav-link">
+								<NavLink href="fetchdata" class="linkMenu d-flex align-items-center gap-2 nav-link">
 									<span class="sb-icons icon-chart e-sb-icon control-icon"></span>
 									<span class="e-text" title="profile">Profile</span>
 								</NavLink>
@@ -218,10 +218,10 @@
 	}
 
 		.linkMenu:hover, .linkMenu:active, .linkMenu:focus {
-			background-color: red !important;
+			/* background-color: red !important; */
 		}
 
-	.nav-item ::deep a.active {
+	.linkMenu ::deep .nav-link.active {
 		background-color: yellow !important;
 	}
 
