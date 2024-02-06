@@ -1,3 +1,9 @@
+:root {
+    --colorGray: #E4E3E1 !important;
+    --colorRed: #8A2336 !important;
+    --someFont: "Lucida Sans Unicode", "Lucida Grande", Sans-Serif;
+}
+
 .page {
     position: relative;
     display: flex;
@@ -81,5 +87,11 @@ main {
     }
 
     .mainTest {
+    }
+
+    ::deep .nav-link.active {
+        font-family: var(--someFont);
+        background-color: var(--colorRed);
+        color: var(--colorGray);
     }
 }
