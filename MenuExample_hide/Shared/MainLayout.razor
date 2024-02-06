@@ -212,17 +212,8 @@
 }
 
 <style>
-	.linkMenu, .linkMenu:hover, .linkMenu:active {
+	.linkMenu {
 		text-decoration: none;
-		color: green;
-	}
-
-		.linkMenu:hover, .linkMenu:active, .linkMenu:focus {
-			/* background-color: red !important; */
-		}
-
-	.linkMenu ::deep .nav-link.active {
-		background-color: yellow !important;
 	}
 
 	.switchLanguage {
@@ -241,13 +232,10 @@
 		top: 50px;
 	}
 
-	#wrapper {
+	#wrapper .content {
+		font-size: 14px;
+		padding: 15px;
 	}
-
-		#wrapper .content {
-			font-size: 14px;
-			padding: 15px;
-		}
 	/* Specifies the Sidebar component related styles */
 	.dockSidebar.e-sidebar.e-right.e-close {
 		visibility: visible;
@@ -285,83 +273,8 @@
 		font-size: 15px;
 	}
 
-	/* Specifies the Toolbar component related styles in light themes*/
-	.material .dockToolbar.e-toolbar {
-		border-bottom: 1px solid rgba(0,0,0,0.12);
-	}
-
-	.fabric .dockToolbar.e-toolbar {
-		border-bottom: 1px solid #eaeaea;
-	}
-
-	.tailwind .dockToolbar.e-toolbar {
-		border-bottom: 1px solid #d7d7d7;
-	}
-
-	.bootstrap5-dark .dockToolbar.e-toolbar {
-		border-bottom: 1px solid #444c54;
-	}
-
-	.bootstrap5 .dockToolbar.e-toolbar {
-		border-bottom: 1px solid #dee2e6;
-	}
-	/* Specifies the Toolbar component related styles in dark themes*/
-	.material-dark .dockToolbar.e-toolbar {
-		border-bottom: 1px solid #616161;
-	}
-
-	.fabric-dark .dockToolbar.e-toolbar {
-		border-bottom: 1px solid #414040;
-	}
-
-	.tailwind-dark .dockToolbar.e-toolbar {
-		border-bottom: 1px solid #4b5563;
-	}
-	/* Specifies the Sidebar component related styles in light themes*/
-	.material .dockSidebar {
-		border-right: 1px solid rgba(0,0,0,0.12) !important;
-	}
-
-	.fabric .dockSidebar {
-		border-right: 1px solid #eaeaea !important;
-	}
-
-	.tailwind .dockSidebar {
-		border-right: 1px solid #d7d7d7 !important;
-	}
-	/* Specifies the Sidebar component related styles in dark themes*/
-	.bootstrap5-dark .dockSidebar {
-		border-right: 1px solid #444c54 !important;
-	}
-
-	.bootstrap5 .dockSidebar {
-		border-right: 1px solid #dee2e6 !important;
-	}
-
-	.material-dark .dockSidebar {
-		border-right: 1px solid #616161 !important;
-	}
-
-	.fabric-dark .dockSidebar {
-		border-right: 1px solid #414040 !important;
-	}
-
-	.tailwind-dark .dockSidebar {
-		border-right: 1px solid #4b5563 !important;
-	}
-
-	.e-bigger.bootstrap5 .dockSidebar .e-listview:not(.e-list-template) .e-list-item,
-	.e-bigger.bootstrap5-dark .dockSidebar .e-listview:not(.e-list-template) .e-list-item {
-		height: 43px;
-	}
-
 	#wrapper .dockSidebar {
 		z-index: 20 !important;
-	}
-
-	/* Specifies the Sidebar component icons related styles*/
-	@@font-face {
-		font-family: 'e-icons';
 	}
 
 	.dockSidebar .e-sb-icon {
@@ -390,34 +303,6 @@
 		font-weight: 500;
 	}
 
-	.e-bigger .e-folder {
-		font-size: 18px;
-	}
-	/* Specifies the Toolbar component related styles for light themes*/
-	.bootstrap5 .e-folder-name, .bootstrap5-dark .e-folder-name {
-		margin-top: -2px;
-	}
-
-	.bootstrap4 .e-folder-name,
-	.bootstrap .e-folder-name, .bootstrap-dark .e-folder-name {
-		margin-top: 3px;
-	}
-
-	.material .e-folder-name, .material-dark .e-folder-name {
-		margin-top: 1px;
-	}
-
-	@@font-face {
-		font-family: 'e-icons';
-		font-weight: normal;
-		font-style: normal;
-	}
-
-	.e-bigger .e-tbar-btn .tb-icons {
-		font-size: 20px;
-		border-color: transparent;
-	}
-
 	.e-btn:hover, .e-css.e-btn:hover {
 		border: none;
 		border-color: transparent;
@@ -436,7 +321,6 @@
 		.e-tbar-btn:active {
 			border: none;
 			border-color: transparent;
-			color: violet;
 		}
 
 		.e-tbar-btn:focus {
@@ -464,7 +348,7 @@
 	}
 
 		.e-listview .e-list-item.e-focused, .e-listview .e-list-item.e-focused.e-active.e-checklist, .e-listview .e-list-item:hover {
-			background-color: blue;
+			background-color: #E4E3E1;
 			color: #8A2336;
 		}
 
@@ -476,55 +360,11 @@
 		content: "\e87d";
 	}
 
-	.bootstrap5:not(.e-bigger) .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
-	.bootstrap5-dark:not(.e-bigger) .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
-	.bootstrap4:not(.e-bigger) .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
-	.bootstrap:not(.e-bigger) .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
-	.bootstrap-dark:not(.e-bigger) .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
-	.highcontrast:not(.e-bigger) .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
-	.material:not(.e-bigger) .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
-	.material-dark:not(.e-bigger) .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child {
-		margin-left: 10px;
-	}
-
-	.tailwind:not(.e-bigger) .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
-	.tailwind-dark:not(.e-bigger) .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child {
-		margin-left: 12px;
-		padding: 2px;
-	}
-
-	.tailwind:not(.e-bigger) .dockToolbar.e-toolbar .e-toolbar-items:first-child > .e-toolbar-item:last-child,
-	.tailwind-dark:not(.e-bigger) .dockToolbar.e-toolbar .e-toolbar-items:first-child > .e-toolbar-item:last-child {
-		padding: 0;
-	}
-
-	.fabric:not(.e-bigger) .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
-	.fabric-dark:not(.e-bigger) .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child {
-		margin-left: 8px;
-	}
-
-	.bootstrap5.e-bigger .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
-	.bootstrap5-dark.e-bigger .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
-	.highcontrast.e-bigger .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child {
-		margin-left: 4px;
-	}
-
-	.material.e-bigger .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
-	.material-dark.e-bigger .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child {
-		margin-left: 6px;
-	}
-
-	.bootstrap4.e-bigger .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
-	.tailwind.e-bigger .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child,
-	.tailwind-dark.e-bigger .dockToolbar.e-toolbar .e-toolbar-items:not(.e-tbar-pos) .e-toolbar-item:first-child {
-		margin-left: 8px;
-	}
-
 	.custom-button-open, .custom-button-open:hover, .custom-button-open:focus, .custom-button-open:active {
 		color: #8A2336 !important;
 		font-size: 20px !important;
 		font-weight: bold;
-		background-color: saddlebrown;
+		background-color: transparent !important;
 		border: none !important;
 		border-color: transparent !important;
 		outline: none !important;
@@ -539,7 +379,7 @@
 		color: #8A2336 !important;
 		font-size: 20px !important;
 		font-weight: bold;
-		background-color: greenyellow;
+		background-color: transparent !important;
 		border: none !important;
 		border-color: transparent !important;
 		outline: none !important;
@@ -565,21 +405,12 @@
 		padding-left: 30px;
 	}
 
-	.e-sidebar {
+	.e-sidebar.e-left {
+		top: 55px;
 	}
 
-		.e-sidebar.e-left {
-			top: 55px;
-		}
-
-		.e-sidebar.e-right {
-			top: 55px;
-		}
-
-	@@font-face {
-		font-family: 'e-icons';
-		font-weight: normal;
-		font-style: normal;
+	.e-sidebar.e-right {
+		top: 55px;
 	}
 
 	.main > div {
@@ -616,48 +447,10 @@
 		content: url("");
 	}
 
-
-
-
-	/*add style for list static menu*/
 	/* Content area styles */
 	.title {
 		font-size: 20px;
 	}
-
-	/* Sidebar styles */
-	.e-sidebar .e-icons::before {
-		font-size: 25px;
-	}
-
-	/* dockbar icon Style */
-	.e-sidebar .home::before {
-		content: '\e102';
-	}
-
-	.e-sidebar .profile::before {
-		content: '\e10c';
-	}
-
-	.e-sidebar .info::before {
-		content: '\e11b';
-	}
-
-	.e-sidebar .settings::before {
-		content: '\e10b';
-	}
-
-	.e-sidebar .expand::before,
-	.e-sidebar.e-right.e-open .expand::before {
-		content: '\e10f';
-	}
-
-	.e-sidebar.e-open .expand::before,
-	.e-sidebar.e-right .expand::before {
-		content: '\e10e';
-	}
-
-	/* end of dockbar icon Style */
 
 	.e-sidebar li {
 		list-style-type: none;
@@ -697,14 +490,7 @@
 		overflow: hidden;
 	}
 
-	@@font-face {
-		font-family: 'e-icons';
-		font-weight: normal;
-		font-style: normal;
-	}
-
 	.main > div {
 		padding: 0px !important;
 	}
-	/* end of sidebar styles */
 </style>
